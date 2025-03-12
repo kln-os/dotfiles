@@ -54,3 +54,4 @@ alias ovim=vim
 alias oc='cd ~/Documents/git && echo "Went to the git folder"'
 alias os='nvim ~/.zshrc'
 alias ss='source ~/.zshrc'
+alias vcf='cd ~/.config/nvim && nvim'
