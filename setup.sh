@@ -50,7 +50,7 @@ if ! command -v nvim &> /dev/null; then
 fi
 
 # 5. Cài đặt các công cụ bổ sung
-for pkg in bat gpg; do
+for pkg in bat gpg stow; do
     dpkg -l | grep -q $pkg || sudo apt install -y $pkg -qq > /dev/null 2>&1
 done
 
