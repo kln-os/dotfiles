@@ -38,15 +38,13 @@ function y() {
 	rm -f -- "$tmp"
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
-alias cat="batcat --paging=never"
+alias f=fzf
+alias fp='fzf --preview="bat --color=always {}"'
+alias fv='nvim $(fzf -m --preview="bat --color=always {}")'
+alias cat='batcat --paging=never --plain'
 alias ls='eza --icons --group-directories-first'
-# Created by `pipx` on 2025-02-25 09:53:24
-
 eval $(thefuck --alias)
 alias fk='fuck'
-
 alias v=nvim
 alias vim=nvim
 alias nv=nvim
@@ -55,3 +53,4 @@ alias oc='cd ~/Documents/git && echo "Went to the git folder"'
 alias os='nvim ~/.zshrc'
 alias ss='source ~/.zshrc'
 alias vcf='cd ~/.config/nvim && nvim'
+alias hypr='xmodmap ~/.Xmodmap'
