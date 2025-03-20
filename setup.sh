@@ -77,6 +77,6 @@ fi
 # Tải lại file .zshrc để áp dụng thay đổi
 source ~/.zshrc
 
-stow -D newVM nvim shortcut tmux zsh 
+stow newVM nvim shortcut tmux zsh 
 
 echo "Cài đặt hoàn tất!"
