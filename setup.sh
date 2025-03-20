@@ -38,8 +38,8 @@ if [ ! -d "$HOME/miniconda" ]; then
 fi
 export PATH="$HOME/miniconda/bin:$PATH"
 conda config --set auto_activate_base false > /dev/null 2>&1
-) &
 conda init zsh > /dev/null 2>&1
+) &
 
 # 4. Cài đặt Neovim 
 (
