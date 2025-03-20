@@ -75,8 +75,10 @@ if [ ! -d "$HOME/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf --quiet > /dev/null 2>&1
     yes | ~/.fzf/install > /dev/null 2>&1
 fi
+
 #tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+echo "tmux"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
 
 # Tải lại file .zshrc để áp dụng thay đổi
 rm ~/.zshrc
