@@ -5,8 +5,8 @@ sh setup.sh
 ```
 
 ```
-bash .visudo.sh
-bash .auth_key.sh
+bash ~/.visudo.sh
+bash ~/.auth_key.sh
 ```
 
 ```
