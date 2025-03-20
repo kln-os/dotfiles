@@ -50,7 +50,7 @@ if ! command -v nvim &> /dev/null; then
 fi
 
 # 5. Cài đặt các công cụ bổ sung
-for pkg in bat gpg stow; do
+for pkg in bat gpg stow nodejs npm; do
     sudo apt install -y $pkg -qq > /dev/null 2>&1
 done
 
@@ -65,18 +65,23 @@ if ! command -v eza &> /dev/null; then
     sudo apt install -y eza -qq > /dev/null 2>&1
 fi
 
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y > /dev/null 2>&1
+. "$HOME/.cargo/env"
 
 # Cài đặt fzf
 if [ ! -d "$HOME/.fzf" ]; then
     echo "Cài đặt fzf..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf --quiet > /dev/null 2>&1
-    zsh
     yes | ~/.fzf/install > /dev/null 2>&1
 fi
+#tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Tải lại file .zshrc để áp dụng thay đổi
-source ~/.zshrc
+rm ~/.zshrc
 
 stow newVM nvim shortcut tmux zsh 
 
+source ~/.zshrc
 echo "Cài đặt hoàn tất!"
