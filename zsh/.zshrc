@@ -43,8 +43,6 @@ alias fp='fzf --preview="bat --color=always {}"'
 alias fv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias cat='batcat --paging=never --plain'
 alias ls='eza --icons --group-directories-first'
-eval $(thefuck --alias)
-alias fk='fuck'
 alias v=nvim
 alias vim=nvim
 alias nv=nvim
