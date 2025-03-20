@@ -29,18 +29,20 @@ ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting --quiet > /dev/null 2>&1
 
 # 3. Cài đặt Miniconda
+(
 if [ ! -d "$HOME/miniconda" ]; then
     echo "Cài đặt Miniconda..."
     wget -q https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
     bash miniconda.sh -b -p $HOME/miniconda > /dev/null 2>&1
     rm miniconda.sh
 fi
-
 export PATH="$HOME/miniconda/bin:$PATH"
 conda config --set auto_activate_base false > /dev/null 2>&1
+) &
 conda init zsh > /dev/null 2>&1
 
 # 4. Cài đặt Neovim 
+(
 if ! command -v nvim &> /dev/null; then
     echo "Neovim..."
     sudo apt install -y software-properties-common -qq > /dev/null 2>&1
@@ -48,13 +50,14 @@ if ! command -v nvim &> /dev/null; then
     sudo apt update -qq > /dev/null 2>&1
     sudo apt install -y neovim -qq > /dev/null 2>&1
 fi
-
+) &
 # 5. Cài đặt các công cụ bổ sung
 for pkg in bat gpg stow nodejs npm zoxide; do
     sudo apt install -y $pkg -qq > /dev/null 2>&1
 done
 
 # Cài đặt eza
+(
 if ! command -v eza &> /dev/null; then
     echo "eza..."
     sudo mkdir -p /etc/apt/keyrings
@@ -64,6 +67,7 @@ if ! command -v eza &> /dev/null; then
     sudo apt update -qq > /dev/null 2>&1
     sudo apt install -y eza -qq > /dev/null 2>&1
 fi
+) &
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y > /dev/null 2>&1
