@@ -50,7 +50,7 @@ if ! command -v nvim &> /dev/null; then
 fi
 
 # 5. Cài đặt các công cụ bổ sung
-for pkg in bat gpg stow nodejs npm; do
+for pkg in bat gpg stow nodejs npm zoxide; do
     sudo apt install -y $pkg -qq > /dev/null 2>&1
 done
 
