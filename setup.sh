@@ -90,10 +90,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>
     cargo build --release --locked > /dev/null 2>&1 && sudo mv target/release/yazi target/release/ya /usr/local/bin/
 ) &
 
-sudo mv target/release/yazi target/release/ya /usr/local/bin/
-# Tải lại file .zshrc để áp dụng thay đổi
-rm ~/.zshrc
 
+rm ~/.zshrc
 stow newVM nvim shortcut tmux zsh 
 zsh
 source ~/.zshrc
