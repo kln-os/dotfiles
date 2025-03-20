@@ -72,7 +72,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y > /dev/n
 # Cài đặt fzf
 (
 if [ ! -d "$HOME/.fzf" ]; then
-    echo "[Background] fzf..."
+    echo "fzf..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf --quiet > /dev/null 2>&1
     yes | ~/.fzf/install > /dev/null 2>&1
 fi
@@ -84,11 +84,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>
 
 #yazi
 (
-    echo "[Background] yazi.."
+    echo "yazi.."
     git clone https://github.com/sxyazi/yazi.git ~/yazi --quiet > /dev/null 2>&1
     cd ~/yazi
-    cargo build --release --locked > /dev/null 2>&1
-    sudo mv target/release/yazi target/release/ya /usr/local/bin/
+    cargo build --release --locked > /dev/null 2>&1 && sudo mv target/release/yazi target/release/ya /usr/local/bin/
 ) &
 
 sudo mv target/release/yazi target/release/ya /usr/local/bin/
