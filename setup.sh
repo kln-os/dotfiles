@@ -70,6 +70,7 @@ fi
 ) &
 
 # rust
+echo "rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y > /dev/null 2>&1
 . "$HOME/.cargo/env"
 
