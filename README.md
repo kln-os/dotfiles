@@ -1,3 +1,4 @@
+# Repo này dùng để chạy mỗi khi tạo một máy mới
 ```
 git clone https://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@github.com/AllSubnet/dotfiles.git ~/.dotfiles --quiet
 cd ~/.dotfiles
