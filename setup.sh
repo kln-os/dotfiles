@@ -84,6 +84,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>
 rm ~/.zshrc
 
 stow newVM nvim shortcut tmux zsh 
-
+zsh
 source ~/.zshrc
 echo "Cài đặt hoàn tất!"
