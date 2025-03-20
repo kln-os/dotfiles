@@ -7,12 +7,12 @@ echo "Update xong"
 
 # 1. Cài đặt Zsh, Oh My Zsh và đặt Zsh làm shell mặc định
 if ! command -v zsh &> /dev/null; then
-    echo "Cài đặt Zsh..."
+    echo "Zsh..."
     sudo apt install -y zsh -qq > /dev/null 2>&1
 fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Cài đặt Oh My Zsh..."
+    echo "Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null 2>&1
 fi
 
@@ -42,7 +42,7 @@ conda init zsh > /dev/null 2>&1
 
 # 4. Cài đặt Neovim 
 if ! command -v nvim &> /dev/null; then
-    echo "Cài đặt Neovim..."
+    echo "Neovim..."
     sudo apt install -y software-properties-common -qq > /dev/null 2>&1
     sudo add-apt-repository ppa:neovim-ppa/unstable -y > /dev/null 2>&1
     sudo apt update -qq > /dev/null 2>&1
@@ -56,7 +56,7 @@ done
 
 # Cài đặt eza
 if ! command -v eza &> /dev/null; then
-    echo "Cài đặt eza..."
+    echo "eza..."
     sudo mkdir -p /etc/apt/keyrings
     wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg > /dev/null 2>&1
     echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list > /dev/null 2>&1
@@ -70,16 +70,28 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y > /dev/n
 . "$HOME/.cargo/env"
 
 # Cài đặt fzf
+(
 if [ ! -d "$HOME/.fzf" ]; then
-    echo "Cài đặt fzf..."
+    echo "[Background] fzf..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf --quiet > /dev/null 2>&1
     yes | ~/.fzf/install > /dev/null 2>&1
 fi
+) &
 
 #tmux
 echo "tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
 
+#yazi
+(
+    echo "[Background] yazi.."
+    git clone https://github.com/sxyazi/yazi.git ~/yazi --quiet > /dev/null 2>&1
+    cd ~/yazi
+    cargo build --release --locked > /dev/null 2>&1
+    sudo mv target/release/yazi target/release/ya /usr/local/bin/
+) &
+
+sudo mv target/release/yazi target/release/ya /usr/local/bin/
 # Tải lại file .zshrc để áp dụng thay đổi
 rm ~/.zshrc
 
