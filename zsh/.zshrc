@@ -40,15 +40,16 @@ function y() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias f=fzf
 alias fp='fzf --preview="bat --color=always {}"'
-alias fv='nvim $(fzf -m --preview="bat --color=always {}")'
 alias cat='batcat --paging=never --plain'
 alias ls='eza --icons --group-directories-first'
 alias v=nvim
-alias vim=nvim
-alias nv=nvim
-alias ovim=vim
-alias oc='cd ~/Documents/git && echo "Went to the git folder"'
-alias os='nvim ~/.zshrc'
-alias ss='source ~/.zshrc'
+alias vf='nvim $(fzf -m --preview="bat --color=always {}")'
 alias vcf='cd ~/.config/nvim && nvim'
+alias vz='nvim ~/.zshrc'
+alias sz='source ~/.zshrc'
+alias spy='source .venv/bin/activate'
+alias cc='conda create -p ./.venv python==3.12'
+alias ca='conda activate ./.venv'
+alias gcg='git config --global user.name khanhkhanhlele && git config --global user.email namkhanh2172@gmail.com'
+alias gcg='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh2172@gmail.com'
 alias hypr='xmodmap ~/.Xmodmap'
