@@ -65,6 +65,15 @@ if ! command -v eza &> /dev/null; then
     sudo apt install -y eza -qq > /dev/null 2>&1
 fi
 
+# lazygit
+if ! command -v lazygit &> /dev/null; then
+    echo "lazygit"
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf lazygit.tar.gz lazygit
+    sudo install lazygit -D -t /usr/local/bin/
+fi
+
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y > /dev/null 2>&1
 . "$HOME/.cargo/env"
@@ -79,6 +88,7 @@ fi
 #tmux
 echo "tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
+
 
 # Tải lại file .zshrc để áp dụng thay đổi
 rm ~/.zshrc
