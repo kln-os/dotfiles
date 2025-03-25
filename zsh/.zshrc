@@ -40,11 +40,11 @@ function y() {
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias f=fzf
-alias fp='fzf --preview="bat --color=always {}"'
+alias fp='fzf --preview="batcat --color=always {}"'
 alias cat='batcat --paging=never --plain'
 alias ls='eza --icons --group-directories-first'
 alias v=nvim
-alias vf='nvim $(fzf -m --preview="bat --color=always {}")'
+alias vf='nvim $(fzf -m --preview="batcat --color=always {}")'
 alias vcf='cd ~/.config/nvim && nvim'
 alias vz='nvim ~/.zshrc'
 alias sz='source ~/.zshrc'
