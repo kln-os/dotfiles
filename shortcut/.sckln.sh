@@ -32,6 +32,12 @@ START_COMMANDS["setting"]="gnome-control-center &"
 APP_NAMES["gpt"]="gpt"
 START_COMMANDS["gpt"]="gtk-launch chatgpt.desktop &"
 
+APP_NAMES["deepseek"]="deepseek"
+START_COMMANDS["deepseek"]="gtk-launch deepseek.desktop &"
+
+APP_NAMES["discord"]="discord"
+START_COMMANDS["discord"]="discord &"
+
 APP_CLASSES["notion"]="notion-desktop"
 START_COMMANDS["notion"]="notion-desktop &"
 
