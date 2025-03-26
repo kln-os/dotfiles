@@ -39,6 +39,7 @@ function y() {
 	rm -f -- "$tmp"
 }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias cd='z'
 alias f=fzf
 alias fp='fzf --preview="batcat --color=always {}"'
 alias cat='batcat --paging=never --plain'
