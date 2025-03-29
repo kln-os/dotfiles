@@ -46,6 +46,7 @@ alias cat='batcat --paging=never --plain'
 alias ls='eza --icons --group-directories-first'
 alias v=nvim
 alias vf='nvim $(fzf -m --preview="batcat --color=always {}")'
+alias vim=nvim
 alias vcf='cd ~/.config/nvim && nvim'
 alias vz='nvim ~/.zshrc'
 alias sz='source ~/.zshrc'
