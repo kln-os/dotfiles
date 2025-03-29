@@ -2,11 +2,11 @@
 
 # Kiểm tra tham số đầu vào
 if [ "$#" -lt 1 ]; then
-    echo "Usage: $0 <app_key>"
-    exit 1
+  echo "Usage: $0 <app_key>"
+  exit 1
 fi
 
-APP_KEY=$1  # Tên ứng dụng đầu vào (VD: "brave", "firefox", "gmail")
+APP_KEY=$1 # Tên ứng dụng đầu vào (VD: "brave", "firefox", "gmail")
 
 # Mapping ứng dụng với tên cửa sổ, class và lệnh chạy
 declare -A APP_NAMES
@@ -44,12 +44,15 @@ START_COMMANDS["notion"]="notion-desktop &"
 APP_CLASSES["simplenote"]="simplenote"
 START_COMMANDS["simplenote"]="simplenote &"
 
+APP_NAMES["youtube"]="youtube"
+START_COMMANDS["youtube"]="gtk-launch youtube.desktop &"
+
 # Lấy workspace hiện tại
 CURRENT_WORKSPACE=$(xdotool get_desktop)
 # Kiểm tra xem ứng dụng có trong danh sách không
 if [[ -z "${APP_NAMES[$APP_KEY]}" && -z "${APP_CLASSES[$APP_KEY]}" ]]; then
-    echo "App '$APP_KEY' is not defined in the script."
-    exit 1
+  echo "App '$APP_KEY' is not defined in the script."
+  exit 1
 fi
 
 APP_NAME=${APP_NAMES[$APP_KEY]}
@@ -60,32 +63,31 @@ START_COMMAND=${START_COMMANDS[$APP_KEY]}
 CURRENT_WORKSPACE=$(xdotool get_desktop)
 
 if [[ -n "$APP_CLASS" ]]; then
-    # Tìm cửa sổ theo class trong workspace hiện tại
-    WINDOW_IDS=$(xdotool search --onlyvisible --classname "$APP_CLASS" | while read id; do
-        [[ $(xdotool get_desktop_for_window "$id") -eq $CURRENT_WORKSPACE ]] && echo $id
-    done)
+  # Tìm cửa sổ theo class trong workspace hiện tại
+  WINDOW_IDS=$(xdotool search --onlyvisible --classname "$APP_CLASS" | while read id; do
+    [[ $(xdotool get_desktop_for_window "$id") -eq $CURRENT_WORKSPACE ]] && echo $id
+  done)
 elif [[ -n "$APP_NAME" ]]; then
-    # Tìm cửa sổ theo tên trong workspace hiện tại
-    WINDOW_IDS=$(xdotool search --onlyvisible --name "$APP_NAME" | while read id; do
-        [[ $(xdotool get_desktop_for_window "$id") -eq $CURRENT_WORKSPACE ]] && echo $id
-    done)
+  # Tìm cửa sổ theo tên trong workspace hiện tại
+  WINDOW_IDS=$(xdotool search --onlyvisible --name "$APP_NAME" | while read id; do
+    [[ $(xdotool get_desktop_for_window "$id") -eq $CURRENT_WORKSPACE ]] && echo $id
+  done)
 fi
 
 if [ -z "$WINDOW_IDS" ]; then
-    # Nếu không tìm thấy cửa sổ trong workspace hiện tại, mở ứng dụng
-    eval "$START_COMMAND" &
-    exit 0
+  # Nếu không tìm thấy cửa sổ trong workspace hiện tại, mở ứng dụng
+  eval "$START_COMMAND" &
+  exit 0
 fi
-
 
 # Lấy cửa sổ hiện đang focus
 ACTIVE_WINDOW=$(xdotool getactivewindow)
 
 # Kiểm tra xem ACTIVE_WINDOW có trong danh sách cửa sổ của ứng dụng không
 if echo "$WINDOW_IDS" | grep -wq "$ACTIVE_WINDOW"; then
-    # Nếu cửa sổ đang focus, thu nhỏ nó
-    xdotool windowminimize "$ACTIVE_WINDOW"
+  # Nếu cửa sổ đang focus, thu nhỏ nó
+  xdotool windowminimize "$ACTIVE_WINDOW"
 else
-    # Nếu ứng dụng không focus, đưa một cửa sổ lên foreground
-    xdotool windowactivate $(echo "$WINDOW_IDS" | head -n 1)
+  # Nếu ứng dụng không focus, đưa một cửa sổ lên foreground
+  xdotool windowactivate $(echo "$WINDOW_IDS" | head -n 1)
 fi
