@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="/opt/homebrew/bin:$PATH"
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -18,12 +19,12 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+# . "$HOME/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+# export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize
     fi
 fi
-unset __conda_setup
+# unset __conda_setup
 
 
 
@@ -38,14 +39,18 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+function t() {
+    tmux attach -t "$1" || tmux new -s "$1"
+}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias cd='z'
 alias f=fzf
-alias fp='fzf --preview="batcat --color=always {}"'
-alias cat='batcat --paging=never --plain'
+alias fp='fzf --preview="bat --color=always {}"'
+alias cat='bat --paging=never --plain'
 alias ls='eza --icons --group-directories-first'
 alias v=nvim
-alias vf='nvim $(fzf -m --preview="batcat --color=always {}")'
+alias vf='nvim $(fzf -m --preview="bat --color=always {}")'
 alias vim=nvim
 alias vcf='cd ~/.config/nvim && nvim'
 alias vz='nvim ~/.zshrc'
@@ -57,3 +62,4 @@ alias gcg='git config --global user.name khanhkhanhlele && git config --global u
 alias gcl='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh2172@gmail.com'
 alias gu='git pull && git add . && git commit -m "update" && git push'
 alias hypr='xmodmap ~/.Xmodmap'
+alias sconda='source ~/miniconda3/bin/activate'
