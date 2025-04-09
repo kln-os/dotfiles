@@ -30,6 +30,7 @@ unset __conda_setup
 eval "$(zoxide init zsh)"
 source $ZSH/oh-my-zsh.sh
 
+export EDITOR="nvim"
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -38,6 +39,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias cd='z'
 alias f=fzf
@@ -56,4 +58,4 @@ alias ca='conda activate ./.venv'
 alias gcg='git config --global user.name khanhkhanhlele && git config --global user.email namkhanh2172@gmail.com'
 alias gcl='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh2172@gmail.com'
 alias gu='git pull && git add . && git commit -m "update" && git push'
-alias hypr='xmodmap ~/.Xmodmap'
+alias hypr='xmodmap ~/.Xmodmap && xcape -e "Hyper_L=Escape" '
