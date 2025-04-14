@@ -14,10 +14,10 @@ declare -A APP_CLASSES
 declare -A START_COMMANDS
 
 # Định nghĩa các ứng dụng
-APP_NAMES["brave"]="brave"
+APP_CLASSES["brave"]="brave"
 START_COMMANDS["brave"]="brave &"
 
-APP_NAMES["code"]="Code"
+APP_CLASSES["code"]="Code"
 START_COMMANDS["code"]="code &"
 
 APP_NAMES["gemini"]="Gemini"
