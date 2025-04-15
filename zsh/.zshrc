@@ -1,36 +1,16 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH="$PATH:$HOME/.local/bin"
-# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+autoload -Uz compinit
+compinit
+
 ZSH_THEME="robbyrussell"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-
-
+eval "$(uv generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR="nvim"
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -39,8 +19,9 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
 alias cd='z'
 alias f=fzf
 alias fp='fzf --preview="batcat --color=always {}"'
@@ -58,4 +39,33 @@ alias ca='conda activate ./.venv'
 alias gcg='git config --global user.name khanhkhanhlele && git config --global user.email namkhanh2172@gmail.com'
 alias gcl='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh2172@gmail.com'
 alias gu='git pull && git add . && git commit -m "update" && git push'
-alias hypr='xmodmap ~/.Xmodmap && xcape -e "Hyper_L=Escape" '
+alias py='python3' 
+
+t() {
+  if [ -z "$TMUX" ]; then
+    tmux attach -t "$1" || tmux new -s "$1"
+  else
+    tmux new-window -n "$1"
+  fi
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="$HOME/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+conda config --set auto_activate_base false
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
