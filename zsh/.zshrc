@@ -22,13 +22,25 @@ function y() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-alias cd='z'
+if (( $+commands[z] )) || (( $+functions[z] )); then
+    alias cd='z'
+fi
 alias f=fzf
-alias fp='fzf --preview="batcat --color=always {}"'
-alias cat='batcat --paging=never --plain'
+
+if (( $+commands[bat] )); then
+    alias cat='bat --paging=never --plain'
+    alias fp='fzf --preview="bat --color=always {}"'
+    alias vf='nvim $(fzf -m --preview="bat --color=always {}")'
+elif (( $+commands[batcat] )); then
+    alias cat='batcat --paging=never --plain'
+    alias fp='fzf --preview="batcat --color=always {}"'
+    alias vf='nvim $(fzf -m --preview="batcat --color=always {}")'
+else
+    alias fp='fzf --preview="cat {}"'
+    alias vf='nvim $(fzf -m --preview="cat {}")'
+fi
 alias ls='eza --icons --group-directories-first'
 alias v=nvim
-alias vf='nvim $(fzf -m --preview="batcat --color=always {}")'
 alias vim=nvim
 alias vcf='cd ~/.config/nvim && nvim'
 alias vz='nvim ~/.zshrc'
@@ -40,6 +52,7 @@ alias gcg='git config --global user.name khanhkhanhlele && git config --global u
 alias gcl='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh2172@gmail.com'
 alias gu='git pull && git add . && git commit -m "update" && git push'
 alias py='python3' 
+alias py310='python3.10'
 
 t() {
   if [ -z "$TMUX" ]; then
@@ -66,6 +79,8 @@ unset __conda_setup
 conda config --set auto_activate_base false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    defaults write NSGlobalDomain KeyRepeat -int 1
+    defaults write NSGlobalDomain InitialKeyRepeat -int 15
+    defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+fi

@@ -1,0 +1,115 @@
+{
+  "remote.SSH.configFile": "~/.ssh/config",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "git.autofetch": true,
+  "workbench.activityBar.location": "top",
+  "workbench.editor.showTabs": "multiple",
+  "workbench.sideBar.location": "right",
+  "editor.stickyScroll.enabled": false,
+  // Language specific settings
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  // Auto sync settings
+  "settingsSync.keybindingsPerPlatform": true,
+
+  // Editor settings
+  "breadcrumbs.enabled": true,
+  "editor.cursorStyle": "line-thin",
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.suggest.insertMode": "replace",
+
+  // Explorer settings
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // Files settings
+  "files.autoSave": "afterDelay",
+
+  // Git settings
+  "git.confirmSync": false,
+
+  // JavaScript settings
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // Terminal settings
+  "terminal.integrated.customGlyphs": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+
+  // TypeScript settings
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.statusBar.visible": true,
+
+  // Zen Mode settings
+  "zenMode.fullScreen": true,
+  "zenMode.hideActivityBar": true,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Vim settings
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["]", "b"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["[", "b"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    }
+  ],
+  // Set keyboard.dispatch to keyCode to fix some issue with key remapping in Gnome Tweak
+  "keyboard.dispatch": "keyCode",
+  "git.suggestSmartCommit": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.wordWrap": "on",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "window.commandCenter": false,
+  "workbench.colorTheme": "Catppuccin Macchiato"
+}
