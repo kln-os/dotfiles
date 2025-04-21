@@ -34,7 +34,8 @@ else
     echo "Neovim config directory not found."
 fi
 
+SCRIPT_DIR=$(dirname "$(realpath "$0")")
 echo "Applying stow for dotfiles..."
-stow -v -t ~ zsh tmux kitty nvim 
+stow -v -t ~ -d $SCRIPT_DIR tmux kitty nvim 
 
 echo "-----------------------------------------"
