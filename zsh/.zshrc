@@ -87,6 +87,3 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 fi
 
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
