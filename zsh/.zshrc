@@ -9,7 +9,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
 
 eval "$(uv generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
 source $ZSH/oh-my-zsh.sh
 
 function y() {
