@@ -39,7 +39,9 @@ else
     alias fp='fzf --preview="cat {}"'
     alias vf='nvim $(fzf -m --preview="cat {}")'
 fi
-alias ls='eza --icons --group-directories-first'
+if (( $+commands[eza] )) || (( $+functions[eza] )); then
+    alias ls='eza --icons --group-directories-first'
+fi
 alias v=nvim
 alias vim=nvim
 alias vcf='cd ~/.config/nvim && nvim'
