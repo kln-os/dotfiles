@@ -33,3 +33,4 @@ chmod 600 "$DEST_FILE"
 
 echo "SSH keys have been updated!"
 echo "-----------------------------------------"
+echo "ssh $(whoami)@$(curl -s ifconfig.co)"
