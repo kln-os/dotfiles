@@ -1,6 +1,7 @@
 echo "=== Starting installation of dotfiles ==="
 
 echo "Applying stow for dotfiles..."
+rm -rf ~/.zshrc
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 chmod +x ${SCRIPT_DIR}/vm/.local/bin/*
 
