@@ -13,13 +13,7 @@
     # cowsay
   ];
 
-  # Cấu hình chương trình
-  programs.zsh.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "khanhkhanhlele";
-    userEmail = "namkhanh20xx@email.com";
-  };
+
 
   # Kích hoạt Home Manager
   programs.home-manager.enable = true;
