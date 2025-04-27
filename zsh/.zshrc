@@ -1,6 +1,8 @@
 export PATH="$PATH:$HOME/.local/bin"
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
+export PATH=/opt/homebrew/bin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 autoload -Uz compinit
 compinit
