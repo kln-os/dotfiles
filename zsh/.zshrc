@@ -10,7 +10,7 @@ ZSH_THEME="robbyrussell"
 
 eval "$(uv generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
