@@ -1,6 +1,17 @@
 export PATH="$PATH:$HOME/.local/bin"
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
+export NIX_CONF_DIR=$HOME/.config/nix
+export PATH=/run/current-system/sw/bin:$PATH
+
+ # Nix
+ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+	 . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+ fi
+ if [-e . "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+ fi
+ # End Nix
 
 autoload -Uz compinit
 compinit
