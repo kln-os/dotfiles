@@ -6,7 +6,7 @@ autoload -Uz compinit
 compinit
 
 ZSH_THEME="robbyrussell"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
 
 eval "$(uv generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
