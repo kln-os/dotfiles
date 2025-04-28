@@ -1,14 +1,14 @@
 export PATH="$PATH:$HOME/.local/bin"
-# export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 autoload -Uz compinit
 compinit
 
 ZSH_THEME="robbyrussell"
-# plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
-# source $ZSH/oh-my-zsh.sh
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $ZSH/oh-my-zsh.sh
 
 eval "$(uv generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
