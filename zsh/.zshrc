@@ -1,5 +1,5 @@
 export PATH="$PATH:$HOME/.local/bin"
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 autoload -Uz compinit
