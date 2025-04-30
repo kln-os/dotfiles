@@ -66,7 +66,7 @@ alias gcl='git config --local user.name khanhkhanhlele && git config --local use
 alias gu='git pull && git add . && git commit -m "update" && git push'
 alias py='python3' 
 alias py310='python3.10'
-alias nixupdate = "nix run github:nix-community/home-manager -- switch --impure --flake ~/pkgs/nix#local"
+alias nixupdate="nix run github:nix-community/home-manager -- switch --impure --flake ~/pkgs/nix#local"
 
 t() {
   if [ -z "$TMUX" ]; then
