@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(uv generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
