@@ -17,7 +17,7 @@ autoload -Uz compinit
 compinit
 
 ZSH_THEME="robbyrussell"
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
+plugins=(git web-search extract copyfile copypath zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete )
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source $ZSH/oh-my-zsh.sh
 
