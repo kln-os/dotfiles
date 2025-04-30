@@ -231,25 +231,6 @@
     "command": "workbench.action.debug.continue",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus) && inDebugMode && debugState == 'stopped'"
   },
-  ////////////////////////////////////////////////////////////////////////
-  // Multiline editing
-  {
-    "key": "ctrl+n",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
-  },
-
-  // disable default "findNextMatch" on both Linux and Mac
-  {
-    "key": "cmd+d",
-    "command": "-editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus && isMac"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "-editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus && isLinux"
-  },
 
   // COPILOT KEY BINDINGS
   {
