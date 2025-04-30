@@ -61,8 +61,8 @@ alias sz='source ~/.zshrc'
 alias spy='source .venv/bin/activate'
 alias cc='conda create -p ./.venv python==3.12'
 alias ca='conda activate ./.venv'
-alias gcg='git config --global user.name khanhkhanhlele && git config --global user.email namkhanh2172@gmail.com'
-alias gcl='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh2172@gmail.com'
+alias gcg='git config --global user.name khanhkhanhlele && git config --global user.email namkhanh20xx@gmail.com'
+alias gcl='git config --local user.name khanhkhanhlele && git config --local user.email namkhanh20xx@gmail.com'
 alias gu='git pull && git add . && git commit -m "update" && git push'
 alias py='python3' 
 alias py310='python3.10'
@@ -77,14 +77,14 @@ t() {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/.conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/.conda/etc/profile.d/conda.sh" ]; then
+        . "$HOME/.conda/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="$HOME/.conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
