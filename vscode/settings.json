@@ -1,7 +1,7 @@
 {
   "remote.SSH.configFile": "~/.ssh/config",
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+    "asvetliakov.vscode-neovim": 5
   },
   "git.autofetch": true,
   "workbench.activityBar.location": "top",
@@ -71,8 +71,9 @@
   "vim.hlsearch": true,
   "vim.leader": "<space>",
   "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
+    "<C-w>": false,
+    "<C-b>": false,
+    // "<C-v>": false
   },
   "vim.insertModeKeyBindings": [
     {
@@ -96,6 +97,22 @@
     {
       "before": ["g", "i"],
       "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "t"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<C-a>"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
+      "before": ["<C-v>"],
+      "commands": ["editor.action.clipboardPasteAction"]
     }
   ],
   // Set keyboard.dispatch to keyCode to fix some issue with key remapping in Gnome Tweak
