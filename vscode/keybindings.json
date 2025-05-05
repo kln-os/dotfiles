@@ -1,7 +1,7 @@
 // Place your key bindings in this file to override the defaults
 [
   // NAVIGATION
-    // Navigation
+  // Navigation
   {
     "key": "ctrl-h",
     "command": "workbench.action.navigateLeft"
@@ -259,5 +259,10 @@
     "when": "editorTextFocus && isLinux"
   },
 
-
+  // Terminal
+  {
+    "key": "ctrl+v",
+    "command": "workbench.action.terminal.paste",
+    "when": "terminalFocus && isLinux"
+  }
 ]

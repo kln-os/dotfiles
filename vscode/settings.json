@@ -129,5 +129,10 @@
   },
   "github.copilot.nextEditSuggestions.enabled": false,
   "window.commandCenter": false,
-  "workbench.colorTheme": "Catppuccin Macchiato"
+  "workbench.colorTheme": "Catppuccin Macchiato",
+
+  //terminal copy paste
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.sendKeybindingsToShell": false,
+
 }
