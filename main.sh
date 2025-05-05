@@ -9,7 +9,7 @@ mkdir -p ~/.local/bin
 for package in tmux kitty nvim visudo zsh atuin; do
     if [ -d "${SCRIPT_DIR}/${package}" ]; then
         echo "Stowing ${package}..."
-        stow -v -t ~ -d $SCRIPT_DIR $package --adopt
+        stow -v -t ~ -d $SCRIPT_DIR $package # --adopt
     else
         echo "Warning: Package ${package} not found in ${SCRIPT_DIR}"
     fi
