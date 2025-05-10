@@ -78,8 +78,6 @@
   },
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
     }
   ],
   "vim.normalModeKeyBindings": [
@@ -114,8 +112,19 @@
     {
       "before": ["<C-v>"],
       "commands": ["editor.action.clipboardPasteAction"]
-    }
+    },
   ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+  ],
+  
   // Set keyboard.dispatch to keyCode to fix some issue with key remapping in Gnome Tweak
   "keyboard.dispatch": "keyCode",
   "git.suggestSmartCommit": false,
@@ -133,6 +142,5 @@
 
   //terminal copy paste
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.sendKeybindingsToShell": false,
-
+  "terminal.integrated.sendKeybindingsToShell": false
 }
