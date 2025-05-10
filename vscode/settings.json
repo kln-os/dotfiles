@@ -18,6 +18,9 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
+  "[nix]":{
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
 
   // Auto sync settings
   "settingsSync.keybindingsPerPlatform": true,
@@ -74,12 +77,9 @@
     "<C-w>": false,
     "<C-b>": false,
     "<C-d>": false,
-    "<C-z>": false,
+    "<C-z>": false
   },
-  "vim.insertModeKeyBindings": [
-    {
-    }
-  ],
+  "vim.insertModeKeyBindings": [{}],
   "vim.normalModeKeyBindings": [
     {
       "before": ["]", "b"],
@@ -112,7 +112,7 @@
     {
       "before": ["<C-v>"],
       "commands": ["editor.action.clipboardPasteAction"]
-    },
+    }
   ],
   "vim.visualModeKeyBindings": [
     {
@@ -122,9 +122,15 @@
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
-    },
+    }
   ],
-  
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+
   // Set keyboard.dispatch to keyCode to fix some issue with key remapping in Gnome Tweak
   "keyboard.dispatch": "keyCode",
   "git.suggestSmartCommit": false,
