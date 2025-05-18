@@ -1,7 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
   // NAVIGATION
-  // Navigation
   {
     "key": "ctrl-h",
     "command": "workbench.action.navigateLeft"
@@ -17,6 +16,10 @@
   {
     "key": "ctrl-j",
     "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "ctrl-shift-r",
+    "command": "workbench.action.openRecent"
   },
   {
     "key": "space ,",
