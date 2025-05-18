@@ -79,7 +79,12 @@
     "<C-d>": false,
     "<C-z>": false
   },
-  "vim.insertModeKeyBindings": [{}],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-v>"],
+      "commands": ["editor.action.clipboardPasteAction"]
+    }
+  ],
   "vim.normalModeKeyBindings": [
     {
       "before": ["]", "b"],
@@ -109,10 +114,6 @@
       "before": ["<C-a>"],
       "after": ["g", "g", "V", "G"]
     },
-    {
-      "before": ["<C-v>"],
-      "commands": ["editor.action.clipboardPasteAction"]
-    }
   ],
   "vim.visualModeKeyBindings": [
     {
