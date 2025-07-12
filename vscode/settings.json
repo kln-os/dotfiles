@@ -1,5 +1,6 @@
 {
   "remote.SSH.configFile": "~/.ssh/config",
+  "window.zoomLevel": 2,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 5
   },
@@ -8,6 +9,10 @@
   "workbench.editor.showTabs": "multiple",
   "workbench.sideBar.location": "right",
   "editor.stickyScroll.enabled": false,
+
+  "editor.scrollbar.verticalScrollbarSize": 10,
+  "editor.scrollbar.horizontalScrollbarSize": 10,
+
   // Language specific settings
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -18,9 +23,6 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "[nix]":{
-    "editor.defaultFormatter": "jnoortheen.nix-ide"
-  },
 
   // Auto sync settings
   "settingsSync.keybindingsPerPlatform": true,
@@ -29,7 +31,7 @@
   "breadcrumbs.enabled": true,
   "editor.cursorStyle": "line-thin",
   "editor.formatOnSave": true,
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "off",
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.suggest.insertMode": "replace",
@@ -50,7 +52,7 @@
   // Terminal settings
   "terminal.integrated.customGlyphs": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
 
   // TypeScript settings
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -87,11 +89,11 @@
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": ["]", "b"],
+      "before": ["]", "]"],
       "commands": ["workbench.action.nextEditor"]
     },
     {
-      "before": ["[", "b"],
+      "before": ["[", "["],
       "commands": ["workbench.action.previousEditor"]
     },
     {
@@ -113,7 +115,7 @@
     {
       "before": ["<C-a>"],
       "after": ["g", "g", "V", "G"]
-    },
+    }
   ],
   "vim.visualModeKeyBindings": [
     {
@@ -149,5 +151,6 @@
 
   //terminal copy paste
   "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.sendKeybindingsToShell": false
+  "terminal.integrated.sendKeybindingsToShell": false,
+  "diffEditor.renderSideBySide": false
 }
